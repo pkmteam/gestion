@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+</head>
+<body>
+    <form action="" name="formulario" class="formulario" >
+        <h1 class="formulario__titulo">Registro de Proveedores</h1>
+        <br>
+        <div class="form_cuerpo">
+            <div>
+                <label for="nombre" class="form_nombre">Nombre </label>
+                <input type="text" name="nombre" id="nombre" class="datos" pattern="^[A-Za-z]+$" title="Ingrese solo letras" placeholder="Ingrese nombre y apellido" maxlength="50" required>
+            </div>
+            <br>
+            <div>
+                <label for="rut" class="form_rut">Rut </label>
+                <input type="text" name="rut" id="rut" class="datos" oninput="validarRut(this)" required>
+            </div>
+            <br>
+            <div>
+                <label for="razon_social" class="form_razso">Razón Social </label>
+                <input type="text" name="razon_social" id="razon_social" class="datos"required>
+            </div>
+            <br>
+            <fieldset class="contacto">
+            <legend>Contacto</legend>
+            <div>
+                <label for="email" class="form_email">Correo</label>
+                <input type="email" name="email" id="email" class="datos">
+            </div>
+            <br>
+            <div>
+                <label for="telefono" class="form_telefono">Teléfono</label>
+                <input type="text" name="telefono" id="telefono" class="datos" maxlength="9">
+            </div>
+            </fieldset>
+            <br>
+            <fieldset class="familias">
+            <legend>Familias</legend>
+            <div>
+                <label for="art_aseo" class="art_aseo">Artículos de Aseo</label>
+                <input type="radio" name="Articulos" class="datos">
+            </div>
+            <div>
+                <label for="ali_noper" class="ali_noper">Alimentos no perecibles</label>
+                <input type="radio" name="al_noperc" class="datos">
+            </div>
+            <div>
+                <label for="ali_per" class="ali_per">Alimentos perecibles</label>
+                <input type="radio" name="al_perec" class="datos">
+            </div>
+            </fieldset>
+            <br>
+        </div>
+        <div id="btn-registrar">
+            <input type="button" value="Registar"  onclick="validar()">
+        </div>
+        <br>
+        <div id="btn-limpiar">
+            <input type="reset" value="Limpiar" >
+        </div> 
+    </form>
+    
+</body>
+</html>

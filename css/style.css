@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.formulario {
+    width: 500px;
+    max-width: 100%;
+    margin: 70px;
+    margin-top: 30px;
+    padding: 20px;
+}
+.formulario__titulo {
+    text-align: center;
+    margin-top: 0;
+}
+
+.form_nombre, .form_rut, .form_razso, .form_email, .form_telefono {
+    display: inline-block;
+    width: 100px;
+}
+
+#nombre, #rut, #razon_social, #email, #telefono {
+    width: 210px;
+}
+
+#btn-registrar {
+    margin-top: 19px;
+    position: absolute;
+    
+}
+
+#btn-limpiar {
+    position: absolute;
+    margin-left: 250px;
+    width: 10px;
+}
+
+
+
