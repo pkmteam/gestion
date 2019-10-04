@@ -15,7 +15,7 @@
         <div class="form_cuerpo">
             <div>
                 <label for="nombre" class="form_nombre">Nombre </label>
-                <input type="text" name="nombre" id="nombre" class="datos" pattern="^[A-Za-z]+$" title="Ingrese solo letras" placeholder="Ingrese nombre y apellido" maxlength="50" required>
+                <input type="text" name="nombre" id="nombre" class="datos" pattern="^[A-Za-z]+$" title="Ingrese solo letras" placeholder="Ingrese nombre y apellido" maxlength="50"  required>
             </div>
             <br>
             <div>
@@ -25,19 +25,19 @@
             <br>
             <div>
                 <label for="razon_social" class="form_razso">Razón Social </label>
-                <input type="text" name="razon_social" id="razon_social" class="datos"required>
+                <input type="text" name="razon_social" id="razon_social" class="datos"  required>
             </div>
             <br>
             <fieldset class="contacto">
             <legend>Contacto</legend>
             <div>
                 <label for="email" class="form_email">Correo</label>
-                <input type="email" name="email" id="email" class="datos">
+                <input type="email" name="email" id="email" class="datos" >
             </div>
             <br>
             <div>
                 <label for="telefono" class="form_telefono">Teléfono</label>
-                <input type="text" name="telefono" id="telefono" class="datos" maxlength="9">
+                <input type="text" name="telefono" id="telefono" class="datos" maxlength="9" >
             </div>
             </fieldset>
             <br>
@@ -59,7 +59,7 @@
             <br>
         </div>
         <div id="btn-registrar">
-            <input type="button" value="Registar"  onclick="validar()">
+            <input type="button" value="Registar"  onclick="registrar()">
         </div>
         <br>
         <div id="btn-limpiar">

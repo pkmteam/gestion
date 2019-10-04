@@ -6,7 +6,7 @@ function validar(){
 
     if(document.formulario.rut.value.length == 0){
         alert("Debe completar el campo rut");
-        validarRut(rut);
+        validarRut();
         return 0;
     }
 
@@ -74,9 +74,9 @@ function validarRut(rut) {
 
 var arrayGuardar = [];
 
-function registrar (arrayGuardar){
-    let proveedores = document.getElementsByClassName("datos"),
-       // arrayGuardar = [];         
+function registrar (){
+    let proveedores = document.getElementsByClassName("datos");
+    arrayGuardar.push(proveedores);
     for (var i = 0; i < proveedores.length; i++) {    
         arrayGuardar[i] = proveedores[i].value;
         console.log (proveedores[i].value);     
