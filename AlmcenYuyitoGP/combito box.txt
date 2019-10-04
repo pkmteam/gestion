@@ -1,0 +1,13 @@
+--Combobox 
+
+<div class="form-row">
+                                  <div class="form-group col-md-4">
+                                    <label for="inputState">Tipo de Usuario</label>
+                                    <select id="inputState" class="form-control">
+                                      <option selected>Opcion</option>
+                                        <option>Automovilista</option>
+                                        <option>Dueño</option>
+                                    </select>
+                                  </div>
+                                  
+                                </div >

@@ -1,0 +1,187 @@
+
+ 
+<!DOCTYPE html>
+<HTML lang="en" style="background-color: #fff;"> 
+ 
+  <head>
+        <TITLE>Almacen Yuyito</TITLE>
+        <meta charset="UTF-8">
+            <link rel="stylesheet" type="text/css" href="diseño.css">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+            <script type="text/javascript" src="java.js"></script>
+    </head>
+    
+        <body style="background-color:lightblue" >       
+           
+          <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+            <a class="navbar-brand" href="#">
+              <img src="img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="Estacionamiento">
+                Almacen Yuyito
+            </a>    
+          
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+                      
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                          <ul class="navbar-nav ml-auto">
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                Empleado
+                              </a>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="index.html">Ingresar</a>
+                                <a class="dropdown-item" data-toggle="modal" data-target="#modalmodificar">Modificar</a>
+                                <a class="dropdown-item" data-toggle="modal" data-target="#modaleliminar">Eliminar</a>
+                                <a class="dropdown-item" onclick="listar()"> Listar</a>
+                              </div>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="index.html">Proveedores</a>
+                            </li>
+                            <li class="nav-item">
+                                    <a class="nav-link" href="#">Inventario</a>
+                                  </li> 
+                          </ul>
+                         
+                        </div>
+          </nav>
+            
+    
+            <div class="container " id="formulario" style="padding: 20px" >
+              <h3>Registro Empleado</h3>
+              <div style="background-color: whitesmoke;   border-radius:5px 5px 5px 5px;">
+                            <form id="miForm" style="padding: 2%;">
+                              
+                                    <div class="form-row">
+                                      <div class="form-group col-md-6">
+                                        <label for="Contra">Nombre</label>
+                                        <input type="imput" class="form-control" id="txtnom" placeholder="Nombre">
+                                      </div>
+                                      <div class="form-group col-md-6">
+                                        <label for="inputPassword4">Rut</label>
+                                        <input type="imput" class="form-control" id="txtrut" onBlur="Valida_Rut(this)" placeholder="Solo numeros">
+                                      </div>
+                                    </div> 
+                                    
+                                    <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                              <label for="Contra">Email</label>
+                                              <input type="email" class="form-control" id="txte" placeholder="ejemplo@gmail.com">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                              <label for="inputPassword4">Celular</label>
+                                              <input type="text" onKeyPress="return soloNumeros(event)" class="form-control" id="txtt" placeholder="1234123412">
+                                            </div>
+                                    </div>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                          <label for="Contra">Cargo</label>
+                                          <select class="form-control" id="cargo">
+                                            <option>Seleccione</option>
+                                            <option>Administrador</option>
+                                            <option>Empleado</option>
+                                          </select>   
+                                        </div>
+                                        
+                                    </div>
+
+                                    <button type="button" id="btnC" onclick="ingreso()" class="btn btn-info">Registrar</button>
+                                    <button type="button" id="btnU" style="display: none" onclick="modificar()" class="btn btn-info">Modificar</button>
+                            </form>
+              </div>
+              <p class="container" style="padding-top: 10px">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores porro quidem cumque totam officiis ex reiciendis deserunt molestias illo numquam quis deleniti sint eaque nesciunt, rem ullam doloremque maxime quisquam? Non molestiae voluptates distinctio impedit possimus ducimus enim, amet quas, dicta laboriosam ex quis reiciendis. Minima voluptatem necessitatibus exercitationem pariatur.
+                </p>
+            </div>
+            
+            <div class="container" id="tabla" style="display: none; padding-top: 20px;">
+
+
+               <h3>Tabla de empleados</h3> 
+
+                <table class="table" >
+                        <thead class="thead-dark">
+                            <tr >
+                                <th scope="col">id</th>
+                                <th scope="col">Imagen</th>
+                                <th scope="col">Nombre Producto</th>
+                                <th scope="col">Valor</th>
+                                <th scope="col">Stock</th>
+                            </tr>
+                        </thead>
+                        <tbody id="contenido" style="background-color: #f0f8ff"></tbody>
+                </table>
+                <button type="button" onclick="volver()" class="btn btn-info">Volver</button>    
+                <p class="container" style="padding-top: 10px">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores porro quidem cumque totam officiis ex reiciendis deserunt molestias illo numquam quis deleniti sint eaque nesciunt, rem ullam doloremque maxime quisquam? Non molestiae voluptates distinctio impedit possimus ducimus enim, amet quas, dicta laboriosam ex quis reiciendis. Minima voluptatem necessitatibus exercitationem pariatur.
+                </div>
+                   
+            <footer class="footer">
+            
+                <div class="container text-center">
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                  <a href="#"><i class="fa fa-linkedin"></i></a>
+                  <a href="#"><i class="fa fa-google-plus"></i></a>
+                  <a href="#"> <i class="fa fa-skype"></i></a>
+                  <br>
+                  <h5>&copy;<b style="color: black">Todos los derechos Reservados.</b></h5> 
+                </div>
+            </footer>  
+        </body>	
+    
+</HTML>
+ 
+<!---Bloque de Modales-->
+<section >
+<div class="modal fade" id="modalmodificar"  role="dialog"   aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modificar</h5>
+      </div>
+      <div class="modal-body">
+        <div class="form-group col-md-12">
+          <label for="Contra">Rut empleado</label>
+          <input type="imput" class="form-control" id="txtbuscar">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" onclick="buscar()">Modificar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section>
+  <div class="modal fade" id="modaleliminar" role="dialog"   aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Eliminar</h5>
+        </div>
+        <div class="modal-body">
+          <div class="form-group col-md-12">
+            <label for="Contra">Rut empleadoo</label>
+            <input type="imput" class="form-control" id="txteliminar">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="eliminar()">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>  
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
